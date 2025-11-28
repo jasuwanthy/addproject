@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Club Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #6a5acd, #00bfff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            width: 420px;
+            padding: 25px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            animation: fadeIn 0.9s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            background: #ffcc00;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #ffea00;
+            transform: scale(1.05);
+        }
+
+        .success {
+            text-align: center;
+            display: none;
+            font-size: 18px;
+            margin-top: 15px;
+            animation: pop 0.8s ease;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Club Registration Form</h2>
+
+        <form id="clubForm">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label>Department</label>
+            <select id="dept">
+                <option value="">Select your department</option>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>CIVIL</option>
+                <option>MECH</option>
+            </select>
+
+            <label>Club You Want to Join</label>
+            <select id="club">
+                <option value="">Select a club</option>
+                <option>Music Club</option>
+                <option>Dance Club</option>
+                <option>Robotics Club</option>
+                <option>Drama Club</option>
+                <option>Sports Club</option>
+                <option>Photography Club</option>
+            </select>
+
+            <label>Why do you want to join?</label>
+            <textarea id="reason" rows="3" placeholder="Write a short reason..."></textarea>
+
+            <button type="button" onclick="submitForm()">Register</button>
+        </form>
+
+        <p class="success" id="successMsg">🎉 Registration Successful! Welcome to the club!</p>
+
+    </div>
+
+    <script>
+        function submitForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let dept = document.getElementById("dept").value;
+            let club = document.getElementById("club").value;
+            let reason = document.getElementById("reason").value.trim();
+
+            if (!name || !email || !dept || !club || !reason) {
+                alert("Please fill all fields before submitting.");
+                return;
+            }
+
+            document.getElementById("successMsg").style.display = "block";
+
+            // Clear form
+            document.getElementById("clubForm").reset();
+        }
+    </script>
+
+</body>
+</html>
 
